@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gimnasia Emocional — Entrenamiento emocional con Sergio Escobar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --kraft: #ddd0b8;
+    --kraft-deep: #c9b995;
+    --cream: #f6f0e4;
+    --ink: #2c2420;
+    --maroon: #7a3b32;
+    --maroon-deep: #5c2b24;
+    --moss: #5f6b4f;
+    --moss-soft: #e4e7db;
+    --line: rgba(44,36,32,0.14);
+    --shadow: rgba(44,36,32,0.10);
+    --bg: var(--cream);
+    --surface: #fffdf8;
+    --text: var(--ink);
+    --text-soft: rgba(44,36,32,0.68);
+    --accent: var(--maroon);
+    --accent-deep: var(--maroon-deep);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #1c1712;
+      --surface: #262019;
+      --text: #efe6d8;
+      --text-soft: rgba(239,230,216,0.68);
+      --line: rgba(239,230,216,0.14);
+      --shadow: rgba(0,0,0,0.35);
+      --kraft: #4a3f30;
+      --kraft-deep: #5c4f3c;
+      --moss-soft: #303628;
+      --accent: #d99184;
+      --accent-deep: #e8ada2;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #1c1712;
+    --surface: #262019;
+    --text: #efe6d8;
+    --text-soft: rgba(239,230,216,0.68);
+    --line: rgba(239,230,216,0.14);
+    --shadow: rgba(0,0,0,0.35);
+    --kraft: #4a3f30;
+    --kraft-deep: #5c4f3c;
+    --moss-soft: #303628;
+    --accent: #d99184;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Poppins', system-ui, sans-serif;
+    font-weight: 300;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, .display {
+    font-family: 'Lora', Georgia, serif;
+    font-weight: 500;
+    color: var(--text);
+    margin: 0;
+  }
+  p { margin: 0; }
+  a { color: inherit; }
+  img { max-width: 100%; }
+
+  .wrap {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+
+  /* ---------- HERO ---------- */
+  .hero {
+    padding: 96px 0 76px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: "";
+    position: absolute;
+    top: -120px; right: -140px;
+    width: 420px; height: 420px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, var(--kraft) 0%, transparent 70%);
+    opacity: 0.6;
+    z-index: 0;
+  }
+  .hero-inner { position: relative; z-index: 1; }
+  .kicker {
+    font-family: 'Lora', serif;
+    font-style: italic;
+    font-size: 1.05rem;
+    color: var(--accent);
+    margin-bottom: 18px;
+  }
+  .brand-title {
+    font-size: clamp(3.6rem, 10vw, 6.4rem);
+    line-height: 0.96;
+    letter-spacing: -0.015em;
+    max-width: 12ch;
+  }
+  .hero-subtitle {
+    margin-top: 22px;
+    font-family: 'Lora', serif;
+    font-style: italic;
+    font-size: clamp(1.2rem, 2.4vw, 1.5rem);
+    color: var(--accent);
+    max-width: 30ch;
+  }
+  .hero-sub {
+    margin-top: 22px;
+    font-size: 1.05rem;
+    max-width: 46ch;
+    color: var(--text-soft);
+  }
+  .hero-actions {
+    margin-top: 40px;
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 30px;
+    border-radius: 4px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.98rem;
+    font-weight: 500;
+    text-decoration: none;
+    border: 1px solid transparent;
+    transition: transform 0.15s ease, background 0.15s ease;
+  }
+  .btn-primary {
+    background: var(--accent);
+    color: #fffaf3;
+  }
+  .btn-primary:hover { background: var(--accent-deep); transform: translateY(-1px); }
+  .btn-ghost {
+    border-color: var(--line);
+    color: var(--text);
+  }
+  .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+  .pillars-strip {
+    margin-top: 64px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 28px;
+    padding-top: 28px;
+    border-top: 1px solid var(--line);
+  }
+  .pillar-word {
+    font-family: 'Lora', serif;
+    font-size: 0.98rem;
+    color: var(--text-soft);
+  }
+  .pillar-word b { color: var(--accent); font-weight: 500; }
+
+  /* ---------- SECTION SHELL ---------- */
+  section { padding: 76px 0; }
+  section.alt { background: var(--surface); }
+  .section-head { max-width: 60ch; margin-bottom: 44px; }
+  .section-head h2 {
+    font-size: clamp(1.7rem, 3.4vw, 2.3rem);
+    line-height: 1.2;
+  }
+  .lede {
+    font-size: 1.08rem;
+    color: var(--text-soft);
+    max-width: 62ch;
+  }
+
+  /* ---------- PARTIDA ---------- */
+  .partida-body {
+    columns: 1;
+    max-width: 68ch;
+  }
+  .partida-body p { margin-bottom: 20px; color: var(--text-soft); font-size: 1.03rem; }
+  .partida-body strong { color: var(--text); font-weight: 500; }
+  .partida-close {
+    margin-top: 8px;
+    font-family: 'Lora', serif;
+    font-style: italic;
+    font-size: 1.2rem;
+    color: var(--accent);
+  }
+
+  /* ---------- QUE ENTRENAMOS: steps ---------- */
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .step {
+    background: var(--surface);
+    padding: 26px 26px 24px;
+    display: flex;
+    gap: 16px;
+  }
+  .step-num {
+    font-family: 'Lora', serif;
+    font-size: 0.95rem;
+    color: var(--accent);
+    flex: none;
+    padding-top: 2px;
+  }
+  .step h3 {
+    font-size: 1.04rem;
+    font-weight: 500;
+    margin-bottom: 6px;
+  }
+  .step p { font-size: 0.93rem; color: var(--text-soft); }
+
+  @media (max-width: 640px) {
+    .steps { grid-template-columns: 1fr; }
+  }
+
+  /* ---------- COMO SE ENTRENA: flow ---------- */
+  .flow {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0;
+    margin: 40px 0 44px;
+    font-family: 'Lora', serif;
+  }
+  .flow-step {
+    padding: 10px 6px;
+    font-size: 1.02rem;
+    color: var(--text);
+  }
+  .flow-arrow {
+    color: var(--accent);
+    padding: 0 10px;
+    font-size: 1.1rem;
+  }
+  .modalities {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .chip {
+    border: 1px solid var(--line);
+    padding: 9px 16px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    color: var(--text-soft);
+  }
+
+  /* ---------- FORMATOS ---------- */
+  .formats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+  }
+  .format-card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 30px 26px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .format-card.featured {
+    border-color: var(--accent);
+    box-shadow: 0 8px 24px var(--shadow);
+  }
+  .format-tag {
+    font-size: 0.82rem;
+    color: var(--accent);
+    font-weight: 500;
+  }
+  .format-card h3 {
+    font-size: 1.3rem;
+  }
+  .format-card .verb {
+    font-family: 'Lora', serif;
+    font-style: italic;
+    color: var(--text-soft);
+    font-size: 0.95rem;
+  }
+  .format-desc { font-size: 0.94rem; color: var(--text-soft); flex-grow: 1; }
+  .format-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding-top: 14px;
+    border-top: 1px solid var(--line);
+    font-size: 0.9rem;
+  }
+  .format-price { font-family: 'Lora', serif; font-size: 1.05rem; color: var(--text); }
+
+  @media (max-width: 760px) {
+    .formats { grid-template-columns: 1fr; }
+  }
+
+  /* ---------- PARA QUIEN ---------- */
+  .audience-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px 40px;
+  }
+  .audience-item {
+    padding-left: 20px;
+    border-left: 2px solid var(--kraft-deep);
+  }
+  .audience-item h3 {
+    font-size: 1.02rem;
+    font-weight: 500;
+    margin-bottom: 5px;
+  }
+  .audience-item p { font-size: 0.92rem; color: var(--text-soft); }
+  @media (max-width: 640px) {
+    .audience-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ---------- TEMAS ---------- */
+  .themes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .theme-pill {
+    background: var(--moss-soft);
+    color: var(--moss);
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .theme-pill { color: #c3d2b0; }
+  }
+  :root[data-theme="dark"] .theme-pill { color: #c3d2b0; }
+
+  /* ---------- APORTA ---------- */
+  .aporta-list {
+    list-style: none;
+    margin: 0; padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px 32px;
+  }
+  .aporta-list li {
+    font-size: 0.98rem;
+    color: var(--text-soft);
+    padding-left: 22px;
+    position: relative;
+  }
+  .aporta-list li::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 9px;
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+  @media (max-width: 640px) {
+    .aporta-list { grid-template-columns: 1fr; }
+  }
+
+  /* ---------- PROCESO ---------- */
+  .process {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+  .process-item { flex: 1 1 200px; }
+  .process-num {
+    font-family: 'Lora', serif;
+    font-size: 2rem;
+    color: var(--kraft-deep);
+    display: block;
+    margin-bottom: 8px;
+  }
+  .process-item h3 { font-size: 1rem; font-weight: 500; margin-bottom: 6px; }
+  .process-item p { font-size: 0.9rem; color: var(--text-soft); }
+
+  /* ---------- CTA FINAL ---------- */
+  .cta-final {
+    background: var(--maroon-deep);
+    color: #fbf3ea;
+    padding: 88px 0;
+    text-align: center;
+  }
+  .cta-final h2 {
+    color: #fbf3ea;
+    font-size: clamp(1.9rem, 4vw, 2.6rem);
+    max-width: 20ch;
+    margin: 0 auto 20px;
+  }
+  .cta-final p {
+    color: rgba(251,243,234,0.78);
+    max-width: 48ch;
+    margin: 0 auto;
+    font-size: 1.05rem;
+  }
+  .cta-final .hero-actions { justify-content: center; margin-top: 36px; }
+  .cta-final .btn-primary { background: #fbf3ea; color: var(--maroon-deep); }
+  .cta-final .btn-primary:hover { background: #fff; }
+  .cta-final .btn-ghost { border-color: rgba(251,243,234,0.4); color: #fbf3ea; }
+  .cta-final .btn-ghost:hover { border-color: #fbf3ea; color: #fff; }
+
+  /* ---------- FOOTER ---------- */
+  footer {
+    padding: 40px 0 60px;
+    text-align: center;
+  }
+  footer .facilitator { font-family: 'Lora', serif; font-size: 1rem; margin-bottom: 6px; }
+  footer .contact-line {
+    font-size: 0.88rem;
+    color: var(--text-soft);
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+  }
+  footer .contact-line a { text-decoration: none; border-bottom: 1px solid var(--line); }
+  footer .contact-line a:hover { border-color: var(--accent); color: var(--accent); }
+
+  ::selection { background: var(--kraft); }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap hero-inner">
+    <p class="kicker">Charlas · Talleres · Curso</p>
+    <h1 class="brand-title">Gimnasia<br>Emocional</h1>
+    <p class="hero-subtitle">Entrenamiento emocional para la vida cotidiana</p>
+    <p class="hero-sub">Un espacio práctico, corporal y experiencial para aprender a reconocer, comprender y gestionar lo que sentimos — llevado a la vida cotidiana, no a la teoría.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="https://wa.me/message/Y3B7EBW4COAEM1" target="_blank" rel="noopener">Escríbeme por WhatsApp</a>
+      <a class="btn btn-ghost" href="#formatos">Ver formatos y precios</a>
+    </div>
+    <div class="pillars-strip">
+      <span class="pillar-word"><b>Cuerpo</b></span>
+      <span class="pillar-word"><b>Emoción</b></span>
+      <span class="pillar-word"><b>Conciencia</b></span>
+      <span class="pillar-word"><b>Experiencia</b></span>
+      <span class="pillar-word"><b>Práctica</b></span>
+    </div>
+  </div>
+</header>
+
+<section id="partida">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>El punto de partida</h2>
+    </div>
+    <div class="partida-body">
+      <p>En nuestra socialización, la tendencia más generalizada ha sido reprimir, evadir o negar las emociones incómodas. Pero las emociones no son positivas ni negativas: son <strong>información que nos da el cuerpo</strong> para desarrollarnos y relacionarnos en el mundo.</p>
+      <p>Aprendemos a adquirir conocimientos, a desarrollar habilidades profesionales y a cuidar el cuerpo. Pero pocas veces aprendemos, de forma práctica, a relacionarnos con lo que sentimos.</p>
+      <p>Expresar lo que sentimos, gestionar conflictos, poner límites, tolerar la frustración o reconocer nuestras necesidades: dificultades que forman parte de la vida cotidiana, y para las que casi nunca recibimos entrenamiento.</p>
+      <p class="partida-close">La propuesta parte de ahí.</p>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="entrenamos">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>¿Qué entrenamos?</h2>
+      <p class="lede">Ocho pasos que sirven de guía para el proceso de entrenamiento emocional.</p>
+    </div>
+    <div class="steps">
+      <div class="step"><span class="step-num">01</span><div><h3>Reconocimiento emocional</h3><p>Aprender a escuchar e identificar qué estoy sintiendo.</p></div></div>
+      <div class="step"><span class="step-num">02</span><div><h3>Conciencia corporal</h3><p>Reconocer cómo se manifiestan las emociones en el cuerpo.</p></div></div>
+      <div class="step"><span class="step-num">03</span><div><h3>Regulación</h3><p>Desarrollar recursos para atravesar situaciones emocionalmente intensas.</p></div></div>
+      <div class="step"><span class="step-num">04</span><div><h3>Exploración</h3><p>Profundizar en lo que sentimos para obtener la información correspondiente.</p></div></div>
+      <div class="step"><span class="step-num">05</span><div><h3>Expresión</h3><p>Encontrar formas saludables de expresar lo que sentimos.</p></div></div>
+      <div class="step"><span class="step-num">06</span><div><h3>Comunicación</h3><p>Aprender a comunicar necesidades, límites y emociones.</p></div></div>
+      <div class="step"><span class="step-num">07</span><div><h3>Relación</h3><p>Comprender cómo nuestras emociones influyen en cómo nos relacionamos.</p></div></div>
+      <div class="step"><span class="step-num">08</span><div><h3>Toma de decisiones</h3><p>Pasar de la reacción automática a una respuesta más consciente.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="como">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>¿Cómo se entrena?</h2>
+      <p class="lede">El itinerario se adapta a cada colectivo, pero sigue siempre el mismo horizonte metodológico. La teoría está al servicio de la experiencia.</p>
+    </div>
+    <div class="flow">
+      <span class="flow-step">Experimentar / Sentir</span><span class="flow-arrow">→</span>
+      <span class="flow-step">Observar</span><span class="flow-arrow">→</span>
+      <span class="flow-step">Comprender</span><span class="flow-arrow">→</span>
+      <span class="flow-step">Practicar</span><span class="flow-arrow">→</span>
+      <span class="flow-step">Integrar</span>
+    </div>
+    <div class="modalities">
+      <span class="chip">Dinámicas individuales</span>
+      <span class="chip">Ejercicios en parejas</span>
+      <span class="chip">Dinámicas grupales</span>
+      <span class="chip">Movimiento y conciencia corporal</span>
+      <span class="chip">Reflexión</span>
+      <span class="chip">Situaciones cotidianas</span>
+      <span class="chip">Herramientas prácticas</span>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="formatos">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Formatos</h2>
+    </div>
+    <div class="formats">
+      <div class="format-card">
+        <span class="format-tag">60–90 min</span>
+        <h3>Charla-presentación</h3>
+        <p class="verb">Comprender: Sentir para Vivir</p>
+        <p class="format-desc">Una primera aproximación general, o una entrada más precisa a un tema emocional concreto.</p>
+        <div class="format-meta"><span>Inversión</span><span class="format-price">Gratuita – 100 €</span></div>
+      </div>
+      <div class="format-card featured">
+        <span class="format-tag">2–4 horas</span>
+        <h3>Taller experiencial</h3>
+        <p class="verb">Experimentar: Sentir en la Vida Cotidiana</p>
+        <p class="format-desc">Una experiencia práctica y participativa para conectar con lo que supone incluir el entrenamiento emocional en el día a día.</p>
+        <div class="format-meta"><span>Inversión</span><span class="format-price">100 – 250 €</span></div>
+      </div>
+      <div class="format-card">
+        <span class="format-tag">4–12 sesiones</span>
+        <h3>Curso: Entrenamiento emocional</h3>
+        <p class="verb">Entrenar: para incluirlo en la cotidianidad</p>
+        <p class="format-desc">Un proceso progresivo, con duración y contenidos adaptados a las necesidades y características del público.</p>
+        <div class="format-meta"><span>Inversión</span><span class="format-price">Presupuesto adaptado</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="paraquien">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>¿Para quién?</h2>
+    </div>
+    <div class="audience-grid">
+      <div class="audience-item"><h3>Ayuntamientos</h3><p>Programas comunitarios y de participación ciudadana.</p></div>
+      <div class="audience-item"><h3>Asociaciones</h3><p>Actividades para socios, usuarios y colectivos.</p></div>
+      <div class="audience-item"><h3>Empresas</h3><p>Bienestar, comunicación y competencias emocionales.</p></div>
+      <div class="audience-item"><h3>Centros educativos</h3><p>Alumnado, docentes y familias.</p></div>
+      <div class="audience-item"><h3>Espacios culturales y comunitarios</h3><p>Charlas, talleres y programas abiertos.</p></div>
+      <div class="audience-item"><h3>Colectivos</h3><p>Propuestas adaptadas a necesidades concretas.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="temas">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Propuestas adaptables</h2>
+      <p class="lede">El programa se diseña alrededor del tema que mejor encaje con cada colectivo.</p>
+    </div>
+    <div class="themes">
+      <span class="theme-pill">Gestión emocional</span>
+      <span class="theme-pill">Estrés y regulación</span>
+      <span class="theme-pill">Límites</span>
+      <span class="theme-pill">Comunicación</span>
+      <span class="theme-pill">Conflictos</span>
+      <span class="theme-pill">Frustración</span>
+      <span class="theme-pill">Autoconocimiento</span>
+      <span class="theme-pill">Vulnerabilidad</span>
+      <span class="theme-pill">Autoestima</span>
+      <span class="theme-pill">Relaciones</span>
+      <span class="theme-pill">Cuerpo y emociones</span>
+    </div>
+  </div>
+</section>
+
+<section id="aporta">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>¿Qué puede aportar?</h2>
+    </div>
+    <ul class="aporta-list">
+      <li>Mayor conciencia emocional</li>
+      <li>Desarrollo de recursos personales</li>
+      <li>Mejora de la comunicación</li>
+      <li>Mayor capacidad de identificar necesidades</li>
+      <li>Herramientas para afrontar situaciones cotidianas</li>
+      <li>Mayor participación y conexión grupal</li>
+      <li>Incorporación de prácticas de autocuidado e higiene emocional</li>
+    </ul>
+  </div>
+</section>
+
+<section class="alt" id="colaboracion">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Propuesta de colaboración</h2>
+      <p class="lede">Diseñamos juntas la propuesta que mejor encaje con tu colectivo — desde una charla introductoria hasta un programa de varias sesiones.</p>
+    </div>
+    <div class="process">
+      <div class="process-item"><span class="process-num">1</span><h3>Conocemos la necesidad</h3><p>Una primera conversación para entender el contexto y el colectivo.</p></div>
+      <div class="process-item"><span class="process-num">2</span><h3>Diseñamos la propuesta</h3><p>Formato, contenidos y duración adaptados a los objetivos.</p></div>
+      <div class="process-item"><span class="process-num">3</span><h3>Realizamos la experiencia</h3><p>Charla, taller o curso, con la metodología cuerpo–emoción–práctica.</p></div>
+      <div class="process-item"><span class="process-num">4</span><h3>Evaluamos y ajustamos</h3><p>Recogemos lo vivido y afinamos el siguiente paso.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-final" id="contacto">
+  <div class="wrap">
+    <h2>¿Hablamos de qué propuesta encaja con vosotros?</h2>
+    <p>Escríbeme por WhatsApp y vemos juntas si una charla, un taller o un curso es el mejor punto de partida.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="https://wa.me/message/Y3B7EBW4COAEM1" target="_blank" rel="noopener">Escríbeme por WhatsApp</a>
+      <a class="btn btn-ghost" href="mailto:nidosparaelcorazon@gmail.com">nidosparaelcorazon@gmail.com</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p class="facilitator">Sergio Escobar — Entrenador Emocional</p>
+    <div class="contact-line">
+      <a href="https://wa.me/message/Y3B7EBW4COAEM1" target="_blank" rel="noopener">WhatsApp</a>
+      <a href="https://instagram.com/descubrimiento_del_ser" target="_blank" rel="noopener">@Descubrimiento_del_Ser</a>
+      <a href="mailto:nidosparaelcorazon@gmail.com">nidosparaelcorazon@gmail.com</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
